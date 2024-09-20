@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react';
 
 export default function App() {
-  const newYear = new Date('1 jan 2025');
-  const newyearDate = new Date(newYear);
-  const cdate = new Date();
+  const [newDate, setNewDate] = useState('');
 
-  const totalSecond = Math.floor(newyearDate - cdate) / 1000;
+  const [hour, setHour] = useState();
 
-  const [hour, setHour] = useState(totalSecond);
+  function handleSubmit(e) {
+    e.preventDefault();
+    const selectedDate = new Date(newDate);
+    console.log(selectedDate);
+    const now = new Date();
+    console.log(now);
+
+    const totalSecond = Math.floor((selectedDate - now) / 1000);
+    console.log(totalSecond);
+    setHour(totalSecond);
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,6 +33,16 @@ export default function App() {
     <div>
       <h1>Hello</h1>
       days:{days} Hours:{hours} min: {minutes} sec: {seconds}
+      <br />
+      <br />
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={(e) => setNewDate(e.target.value)}
+          value={newDate}
+          type="date"
+        />
+        <button type="submit">Click to submit</button>
+      </form>
     </div>
   );
 }
