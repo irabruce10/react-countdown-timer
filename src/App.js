@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import Header from './component/header/Header';
+// import Header from './component/header/Header';
 import './App.css';
 
 export default function App() {
+  const initialState = '1/1/2025';
   const [newDate, setNewDate] = useState('');
 
-  const [hour, setHour] = useState();
+  const [hour, setHour] = useState(initialState);
 
   const [description, setDescription] = useState('');
 
@@ -16,17 +17,20 @@ export default function App() {
       return;
     }
 
-    const a = document.createElement('h1');
-    a.textContent = description;
-    document.body.appendChild(a, 'countdown');
+    // const message = document.createElement('h1');
+    // message.textContent = description;
+    // message.className = 'countdown-message';
+    // document.body.appendChild(message, 'countdown');
     const selectedDate = new Date(newDate);
-    console.log(selectedDate);
+
     const now = new Date();
     console.log(now);
 
     const totalSecond = Math.floor((selectedDate - now) / 1000);
     console.log(totalSecond);
     setHour(totalSecond);
+
+    setDescription('');
   }
 
   useEffect(() => {
@@ -45,22 +49,27 @@ export default function App() {
     <div className="timer-container">
       <div className="aside-one">
         <h1>Coming Soon</h1>
+
+        {description && <h1>{description}</h1>}
         <div className="countdown-wrapper">
           <div className="countdown-number">
             <span> {days || 0}</span>
             <p>Days</p>
           </div>
+
           <div className="countdown-number">
             <span> {hours || 0}</span>
-            <p>Days</p>
+            <p>Hours</p>
           </div>
+
           <div className="countdown-number">
             <span> {minutes || 0}</span>
-            <p>Days</p>
+            <p>minutes</p>
           </div>
+
           <div className="countdown-number">
             <span> {seconds || 0}</span>
-            <p>Days</p>
+            <p>seconds</p>
           </div>
         </div>
       </div>

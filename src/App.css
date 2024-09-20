@@ -4,13 +4,18 @@
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(
+  height: 60vh;
+  /* background: linear-gradient(
       200deg,
       rgba(0, 0, 255, 0.8),
       rgba(141, 103, 103, 0) 70.71%
     ),
-    linear-gradient(336deg, rgba(159, 85, 85, 0.8), rgba(0, 0, 255, 0) 70.71%);
+    linear-gradient(336deg, rgba(159, 85, 85, 0.8), rgba(0, 0, 255, 0) 70.71%); */
+
+  background-image: url('../public/bg.jpg');
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .timer-container {
@@ -20,11 +25,43 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15em auto;
+  margin: 12em auto;
 }
 
 .aside-one {
-  width: 45%;
+  width: 50%;
   height: 100%;
   background: rgba(141, 103, 103, 0.8);
+}
+
+.aside-one h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.countdown-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.countdown-number {
+  color: #ffff;
+}
+
+.countdown-number span {
+  font-size: 6em;
+  text-align: center;
+}
+
+.countdown-number p {
+  font-weight: bold;
+  text-align: center;
+}
+
+.countdown-message h1 {
+  color: #ffff;
 }
