@@ -5,8 +5,18 @@ export default function App() {
 
   const [hour, setHour] = useState();
 
+  const [description, setDescription] = useState('');
+
   function handleSubmit(e) {
     e.preventDefault();
+    if (!newDate || !description) {
+      alert('Please fill in both fields.');
+      return;
+    }
+
+    const a = document.createElement('h1');
+    a.textContent = description;
+    document.body.appendChild(a, 'countdown');
     const selectedDate = new Date(newDate);
     console.log(selectedDate);
     const now = new Date();
@@ -31,8 +41,9 @@ export default function App() {
   const seconds = Math.floor(hour) % 60;
   return (
     <div>
-      <h1>Hello</h1>
-      days:{days} Hours:{hours} min: {minutes} sec: {seconds}
+      <h1>Countdown Timer</h1>
+      days:{days || 0} Hours:{hours || 0} min: {minutes || 0} sec:{' '}
+      {seconds || 0}
       <br />
       <br />
       <form onSubmit={handleSubmit}>
@@ -40,6 +51,12 @@ export default function App() {
           onChange={(e) => setNewDate(e.target.value)}
           value={newDate}
           type="date"
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <button type="submit">Click to submit</button>
       </form>
