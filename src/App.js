@@ -53,12 +53,11 @@ export default function App() {
           type="date"
         />
         <input
-          type="text"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Click to submit</button>
+        <button>Click to submit</button>
       </form>
     </div>
   );
