@@ -44,8 +44,25 @@ export default function App() {
   return (
     <div className="timer-container">
       <div className="aside-one">
-        days:{days || 0} Hours:{hours || 0} min: {minutes || 0} sec:{' '}
-        {seconds || 0}
+        <h1>Coming Soon</h1>
+        <div className="countdown-wrapper">
+          <div className="countdown-number">
+            <span> {days || 0}</span>
+            <p>Days</p>
+          </div>
+          <div className="countdown-number">
+            <span> {hours || 0}</span>
+            <p>Days</p>
+          </div>
+          <div className="countdown-number">
+            <span> {minutes || 0}</span>
+            <p>Days</p>
+          </div>
+          <div className="countdown-number">
+            <span> {seconds || 0}</span>
+            <p>Days</p>
+          </div>
+        </div>
       </div>
 
       <div className="aside-two">

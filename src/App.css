@@ -22,3 +22,9 @@ body {
   align-items: center;
   margin: 15em auto;
 }
+
+.aside-one {
+  width: 45%;
+  height: 100%;
+  background: rgba(141, 103, 103, 0.8);
+}
