@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Header from './component/header/Header';
+import './App.css';
 
 export default function App() {
   const [newDate, setNewDate] = useState('');
@@ -40,25 +42,27 @@ export default function App() {
   const minutes = Math.floor((hour % 3600) / 60);
   const seconds = Math.floor(hour) % 60;
   return (
-    <div>
-      <h1>Countdown Timer</h1>
-      days:{days || 0} Hours:{hours || 0} min: {minutes || 0} sec:{' '}
-      {seconds || 0}
-      <br />
-      <br />
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={(e) => setNewDate(e.target.value)}
-          value={newDate}
-          type="date"
-        />
-        <input
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button>Click to submit</button>
-      </form>
+    <div className="timer-container">
+      <div className="aside-one">
+        days:{days || 0} Hours:{hours || 0} min: {minutes || 0} sec:{' '}
+        {seconds || 0}
+      </div>
+
+      <div className="aside-two">
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={(e) => setNewDate(e.target.value)}
+            value={newDate}
+            type="date"
+          />
+          <input
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <button>Click to submit</button>
+        </form>
+      </div>
     </div>
   );
 }
