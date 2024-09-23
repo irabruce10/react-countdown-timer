@@ -75,6 +75,7 @@ export default function App() {
       </div>
 
       <div className="aside-two">
+        <h1 className="aside-two-title">Add some information</h1>
         <form onSubmit={handleSubmit}>
           <input
             onChange={(e) => setNewDate(e.target.value)}
@@ -86,7 +87,8 @@ export default function App() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button>Click to submit</button>
+          <br />
+          <button>Add</button>
         </form>
       </div>
     </div>
