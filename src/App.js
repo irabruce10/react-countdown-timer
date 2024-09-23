@@ -8,7 +8,10 @@ export default function App() {
 
   const [hour, setHour] = useState(initialState);
 
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState('example');
+  const [title, setTitle] = useState('titles');
+
+  const [data, setData] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +20,16 @@ export default function App() {
       return;
     }
 
-    // const message = document.createElement('h1');
+    const newItem = {
+      title,
+      description,
+      id: Date.now(),
+      hour,
+    };
+
+    setData([...data, newItem]);
+
+    // const message = document.createElement('h3');
     // message.textContent = description;
     // message.className = 'countdown-message';
     // document.body.appendChild(message, 'countdown');
@@ -27,10 +39,8 @@ export default function App() {
     console.log(now);
 
     const totalSecond = Math.floor((selectedDate - now) / 1000);
-    console.log(totalSecond);
-    setHour(totalSecond);
 
-    setDescription('');
+    setHour(totalSecond);
   }
 
   useEffect(() => {
@@ -50,25 +60,34 @@ export default function App() {
       <div className="aside-one">
         <h1>Coming Soon</h1>
 
-        {description && <h1>{description}</h1>}
+        {data.map((d) => {
+          return (
+            <div key={`d-${d.id}`} className="countdown-message">
+              <h1>{d.title}</h1>
+              <h2>{description}</h2>
+            </div>
+          );
+        })}
+
+        {}
         <div className="countdown-wrapper">
           <div className="countdown-number">
-            <span> {days || 0}</span>
+            <span> {days || '00'}</span>
             <p>Days</p>
           </div>
 
           <div className="countdown-number">
-            <span> {hours || 0}</span>
+            <span> {hours || '00'}</span>
             <p>Hours</p>
           </div>
 
           <div className="countdown-number">
-            <span> {minutes || 0}</span>
+            <span> {minutes || '00'}</span>
             <p>minutes</p>
           </div>
 
           <div className="countdown-number">
-            <span> {seconds || 0}</span>
+            <span> {seconds || '00'}</span>
             <p>seconds</p>
           </div>
         </div>
@@ -81,6 +100,11 @@ export default function App() {
             onChange={(e) => setNewDate(e.target.value)}
             value={newDate}
             type="date"
+          />
+          <input
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <input
             placeholder="Description"

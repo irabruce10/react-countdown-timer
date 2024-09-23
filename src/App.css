@@ -33,20 +33,32 @@ body {
   width: 50%;
   height: 100%;
   background: rgba(141, 103, 103, 0.8);
+  text-align: center;
+  position: relative;
 }
 
-.aside-one h1 {
+h1 {
   color: white;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1em;
+  text-align: center;
+  padding-top: 1em;
+  border: 1px solid red;
+}
+h2 {
+  color: wheat;
+  text-align: center;
+  border: 1px solid red;
 }
 
 .countdown-wrapper {
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+  border: 1px solid rgb(9, 163, 12);
 }
 
 .countdown-number {
@@ -63,8 +75,12 @@ body {
   text-align: center;
 }
 
-.countdown-message h1 {
+.countdown-message h3 {
   color: #ffff;
+  top: 50%;
+  left: 200px;
+  background: yellow;
+  position: absolute;
 }
 
 .aside-two {
