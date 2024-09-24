@@ -65,7 +65,8 @@ export default function App() {
   return (
     <div className="timer-container">
       <div className="aside-one">
-        <h1 className="aside-one-title">Coming Soon..</h1>
+        <h1 className="aside-one-title">Coming Soon.. </h1>
+
         {countdown.map((count) => {
           return (
             <div key={`count-${count.id}`} className="countdown-message">
