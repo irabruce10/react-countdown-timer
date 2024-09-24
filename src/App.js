@@ -27,7 +27,7 @@ export default function App() {
       hour,
     };
 
-    setData([...data, newItem]);
+    setData([newItem]);
 
     // const message = document.createElement('h3');
     // message.textContent = description;
@@ -58,13 +58,11 @@ export default function App() {
   return (
     <div className="timer-container">
       <div className="aside-one">
-        <h1>Coming Soon</h1>
-
         {data.map((d) => {
           return (
             <div key={`d-${d.id}`} className="countdown-message">
-              <h1>{d.title}</h1>
-              <h2>{description}</h2>
+              <h1 className="title">{d.title}</h1>
+              <h2 className="descr">{description}</h2>
             </div>
           );
         })}

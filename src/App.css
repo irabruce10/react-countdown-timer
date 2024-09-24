@@ -6,12 +6,6 @@
 
 body {
   height: 60vh;
-  /* background: linear-gradient(
-      200deg,
-      rgba(0, 0, 255, 0.8),
-      rgba(141, 103, 103, 0) 70.71%
-    ),
-    linear-gradient(336deg, rgba(159, 85, 85, 0.8), rgba(0, 0, 255, 0) 70.71%); */
 
   background-image: url('../public/bg.jpg');
   background-position: cover;
@@ -34,59 +28,57 @@ body {
   height: 100%;
   background: rgba(141, 103, 103, 0.8);
   text-align: center;
-  position: relative;
-}
 
-h1 {
-  color: white;
-  font-weight: 700;
-  font-size: 1em;
-  text-align: center;
-  padding-top: 1em;
-  border: 1px solid red;
-}
-h2 {
-  color: wheat;
-  text-align: center;
-  border: 1px solid red;
-}
+  h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 3em;
+    text-align: center;
+    padding-top: 1em;
+    border: 1px solid red;
+  }
+  h2 {
+    color: wheat;
+    text-align: center;
+    border: 1px solid red;
+  }
 
-.countdown-wrapper {
-  width: 100%;
-  height: 40%;
-  display: flex;
+  .countdown-wrapper {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
 
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid rgb(9, 163, 12);
-}
+  .countdown-number {
+    color: #ffff;
+  }
 
-.countdown-number {
-  color: #ffff;
-}
+  .countdown-number span {
+    font-size: 6em;
+    text-align: center;
+  }
 
-.countdown-number span {
-  font-size: 6em;
-  text-align: center;
-}
+  .countdown-number p {
+    font-weight: bold;
+    text-align: center;
+  }
 
-.countdown-number p {
-  font-weight: bold;
-  text-align: center;
-}
-
-.countdown-message h3 {
-  color: #ffff;
-  top: 50%;
-  left: 200px;
-  background: yellow;
-  position: absolute;
+  .countdown-message h3 {
+    color: #ffff;
+    top: 50%;
+    left: 200px;
+    background: yellow;
+    position: absolute;
+  }
 }
 
 .aside-two {
   width: 50%;
   height: 100%;
-  background: rgba(0, 0, 255, 0.8);
+
   text-align: center !important;
 
   h1 {
@@ -94,7 +86,7 @@ h2 {
     font-weight: 700;
     font-size: 2em;
     text-align: center;
-    padding-top: 2em;
+    padding-top: 1.5em;
   }
 
   form {
@@ -117,10 +109,14 @@ h2 {
     margin: 0 auto;
     border: none;
     border-radius: 4px;
-    background: #450cf0;
+    background: #f3c405;
     color: white;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.3s ease;
+    font-size: 1em;
+  }
+  button:hover {
+    background: #e0b200;
   }
 }
