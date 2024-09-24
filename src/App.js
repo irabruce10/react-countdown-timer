@@ -9,33 +9,33 @@ export default function App() {
 
   const initialState = totalInSeconds;
 
-  const [newDate, setNewDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
 
   const [hour, setHour] = useState(initialState);
 
-  const [description, setDescription] = useState('example');
-  const [title, setTitle] = useState('titles');
+  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState('');
 
   const [data, setData] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!newDate || !description) {
+    if (!selectedDate || !description || !title) {
       alert('Please fill in both fields.');
       return;
     }
 
-    // const message = document.createElement('h3');
-    // message.textContent = description;
-    // message.className = 'countdown-message';
-    // document.body.appendChild(message, 'countdown');
-    const selectedDate = new Date(newDate);
+    const date = new Date(selectedDate);
 
     const now = new Date();
 
-    const totalSecond = Math.floor((selectedDate - now) / 1000);
+    const totalSecond = Math.floor((date - now) / 1000);
 
-    console.log(totalSecond);
+    if (totalSecond < 0) {
+      clearInterval(hour);
+      alert('Countdown completed!');
+      return;
+    }
     const newItem = {
       title,
       description,
@@ -71,7 +71,6 @@ export default function App() {
           );
         })}
 
-        {}
         <div className="countdown-wrapper">
           <div className="countdown-number">
             <span> {days || '00'}</span>
@@ -100,8 +99,8 @@ export default function App() {
         <form onSubmit={handleSubmit}>
           <input
             type="date"
-            onChange={(e) => setNewDate(e.target.value)}
-            value={newDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            value={selectedDate}
           />
           <input
             placeholder="Countdown title:"

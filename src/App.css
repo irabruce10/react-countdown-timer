@@ -29,6 +29,8 @@ body {
   background: rgba(141, 103, 103, 0.8);
   text-align: center;
   box-sizing: border-box;
+  position: block;
+  margin: auto;
 
   h1 {
     color: white;
@@ -69,12 +71,23 @@ body {
     text-align: center;
   }
 
-  .countdown-message h3 {
-    color: #ffff;
-    top: 50%;
-    left: 200px;
-    background: yellow;
-    position: absolute;
+  .countdown-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .countdown-message .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .countdown-message .descr {
+    font-size: 18px;
+    text-align: center;
   }
 }
 
