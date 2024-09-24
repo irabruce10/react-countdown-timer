@@ -62,6 +62,7 @@ export default function App() {
   return (
     <div className="timer-container">
       <div className="aside-one">
+        <h1 className="aside-one-title">Coming Soon..</h1>
         {data.map((d) => {
           return (
             <div key={`d-${d.id}`} className="countdown-message">
