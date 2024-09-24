@@ -16,7 +16,7 @@ export default function App() {
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
 
-  const [data, setData] = useState([]);
+  const [countdown, setCountdown] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -44,7 +44,10 @@ export default function App() {
     };
 
     setHour(totalSecond);
-    setData([newItem]);
+    setCountdown([newItem]);
+    setTitle('');
+    setDescription('');
+    setSelectedDate('');
   }
 
   useEffect(() => {
@@ -63,11 +66,11 @@ export default function App() {
     <div className="timer-container">
       <div className="aside-one">
         <h1 className="aside-one-title">Coming Soon..</h1>
-        {data.map((d) => {
+        {countdown.map((count) => {
           return (
-            <div key={`d-${d.id}`} className="countdown-message">
-              <h1 className="title">{d.title}</h1>
-              <h2 className="descr">{description}</h2>
+            <div key={`count-${count.id}`} className="countdown-message">
+              <h1 className="title">{count.title}</h1>
+              <h2 className="descr">{count.description}</h2>
             </div>
           );
         })}
