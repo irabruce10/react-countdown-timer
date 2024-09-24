@@ -28,6 +28,7 @@ body {
   height: 100%;
   background: rgba(141, 103, 103, 0.8);
   text-align: center;
+  box-sizing: border-box;
 
   h1 {
     color: white;
@@ -50,6 +51,8 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    position: relative;
+    top: 50%;
   }
 
   .countdown-number {

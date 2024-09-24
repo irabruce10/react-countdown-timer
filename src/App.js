@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 export default function App() {
-  const initialState = '1/1/2025';
+  const nextYear = new Date('1/1/2025');
+  const dateOfToday = new Date();
+  const totalInSeconds = Math.floor((nextYear - dateOfToday) / 1000);
+
+  const initialState = totalInSeconds;
+
   const [newDate, setNewDate] = useState('');
 
   const [hour, setHour] = useState(initialState);
@@ -20,15 +25,6 @@ export default function App() {
       return;
     }
 
-    const newItem = {
-      title,
-      description,
-      id: Date.now(),
-      hour,
-    };
-
-    setData([newItem]);
-
     // const message = document.createElement('h3');
     // message.textContent = description;
     // message.className = 'countdown-message';
@@ -36,11 +32,19 @@ export default function App() {
     const selectedDate = new Date(newDate);
 
     const now = new Date();
-    console.log(now);
 
     const totalSecond = Math.floor((selectedDate - now) / 1000);
 
+    console.log(totalSecond);
+    const newItem = {
+      title,
+      description,
+      id: Date.now(),
+      hour,
+    };
+
     setHour(totalSecond);
+    setData([newItem]);
   }
 
   useEffect(() => {
@@ -92,15 +96,15 @@ export default function App() {
       </div>
 
       <div className="aside-two">
-        <h1 className="aside-two-title">Add some information</h1>
+        <h1 className="aside-two-title">Create your Countdown</h1>
         <form onSubmit={handleSubmit}>
           <input
+            type="date"
             onChange={(e) => setNewDate(e.target.value)}
             value={newDate}
-            type="date"
           />
           <input
-            placeholder="Title"
+            placeholder="Countdown title:"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -110,7 +114,7 @@ export default function App() {
             onChange={(e) => setDescription(e.target.value)}
           />
           <br />
-          <button>Add</button>
+          <button>Create Countdown</button>
         </form>
       </div>
     </div>
